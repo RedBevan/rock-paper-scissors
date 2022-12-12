@@ -3,7 +3,6 @@
 
 function getComputerChoice() { 
     let ranNum = (Math.random())*10;
-    console.log(ranNum);
       if (ranNum <= 3.33) {
         return "rock";
       } else if (ranNum <= 6.66) {
@@ -11,15 +10,15 @@ function getComputerChoice() {
       } else {
         return "scissors";        
       }
-    console.log(computerChoice);
       
 }
-const computerChoice = getComputerChoice();
-console.log(computerChoice);
+
 
 
 
 function playRound() { /* This function plays single round of RPS */
+  const computerChoice = getComputerChoice();
+  console.log(computerChoice);
   const userInput = prompt('Rock, paper or scissors?', ''); //Get user choice from a prompt
   const userChoice = userInput.toLowerCase(); //Convert user choice to lower case
   console.log(userChoice);
@@ -52,6 +51,8 @@ function playRound() { /* This function plays single round of RPS */
       }
       
 }
+
+alert('Get ready to play!');
 
 function game() {
   for (let i = 0; i < 5; i++) {
