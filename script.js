@@ -13,8 +13,8 @@ function getComputerChoice() {
       
 }
 
-
-
+let computerScore = 0;
+let userScore = 0;
 
 function playRound() { /* This function plays single round of RPS */
   const computerChoice = getComputerChoice();
@@ -24,43 +24,48 @@ function playRound() { /* This function plays single round of RPS */
   console.log(userChoice);
   if (userChoice === computerChoice) {
     console.log("It's a draw!");
-        return "It's a draw!";
-    } else if (userChoice === "rock") {
-      if (computerChoice === "paper") {
-        console.log('You lose, ' + computerChoice + ' beats ' + userChoice + '!');
-        return 'You lose, ' + computerChoice + ' beats ' + userChoice + '!';
-      } else if (computerChoice === "scissors") {
-        console.log('You win, ' + userChoice + ' beats ' + computerChoice + '!');
-        return 'You win, ' + userChoice + ' beats ' + computerChoice + '!';
-      }
-      } else if (userChoice === "paper") {
-        if (computerChoice === "rock") {
-          console.log('You win, ' + userChoice + ' beats ' + computerChoice + '!');
-          return 'You win, ' + userChoice + ' beats ' + computerChoice + '!';
-        } else if (computerChoice === "scissors") {
-          console.log('You lose, ' + computerChoice + ' beats ' + userChoice + '!');
-          return 'You lose, ' + computerChoice + ' beats ' + userChoice + '!';
-        }
-      } else if (userChoice === "scissors") {
-        if (computerChoice === "rock") {
-          console.log('You lose, ' + computerChoice + ' beats ' + userChoice + '!');
-          return 'You lose, ' + computerChoice + ' beats ' + userChoice + '!';
-        } else if (computerChoice === "paper") {
-          console.log('You win, ' + userChoice + ' beats ' + computerChoice + '!');
-      } return 'You win, ' + userChoice + ' beats ' + computerChoice + '!';
-      }
-      
-}
+    return "It's a draw!";
+  } else if ((userChoice === 'rock' && computerChoice === 'scissors')
+            || (userChoice === 'paper' && computerChoice === 'rock')
+            || (userChoice === 'scissors' && computerChoice === 'paper')) {
+              console.log(`You win! ${userChoice} beats ${computerChoice}`)
+              userScore += 1;
+              return `You win! ${userChoice} beats ${computerChoice}`;
+            } else {
+              console.log(`You lose! ${computerChoice} beats ${userChoice}`);
+              computerScore += 1;
+              return `You lose! ${computerChoice} beats ${userChoice}`;
+            }};
+    
 
 alert('Get ready to play!');
 
 function game() {
+while (userScore < 5 && computerScore < 5) {
+  playRound();
+  console.log(`Computer score: ${computerScore}`);
+  console.log(`User score: ${userScore}`);
+  }
+  if (userScore > computerScore) {
+    console.log(`You win the game! You scored ${userScore} points
+    and the computer scored ${computerScore}`);
+  } else {
+    console.log(`You lose the game. The computer scored
+    ${computerScore} points and you scored ${userScore}`);
+  }
+  }
+
+/* function game() {
   for (let i = 0; i < 5; i++) {
     if (i < 5) {
       playRound();
+      console.log('User score: ' + userScore);
+      console.log('Computer score: ' + computerScore);
     }
  }
-}
+ console.log(`Computer score: ${computerScore}`);
+ console.log(`User score: ${userScore}`);
+} */
 
 game();
 
