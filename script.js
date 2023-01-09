@@ -74,26 +74,28 @@ function userPlaysScissors() {
 
 function playRound(userChoice) {
   const computerChoice = getComputerChoice();
-  console.log(`Computer plays: ${computerChoice}`);
-  console.log('User plays: ' + userChoice);
+  userPlays.textContent = `You choose: ${userChoice}.`;
+  computerPlays.textContent = `Computer chooses: ${computerChoice}`;
   if (computerChoice == userChoice) {
-    console.log("It's a draw!");
+    winnerIs.textContent = "It's a draw!";
     return "It's a draw!";
   } else if (
       (userChoice == 'rock' && computerChoice == 'scissors') 
       || (userChoice == 'paper' && computerChoice == 'rock')
       || (userChoice == 'scissors' && computerChoice == 'paper')
     ) {
-      console.log(`You win! ${userChoice} beats ${computerChoice}`);
-      return `You win! ${userChoice} beats ${computerChoice}`
+      winnerIs.textContent = `You win, ${userChoice} beats ${computerChoice}.`;
+      return `You win, ${userChoice} beats ${computerChoice}.`
     } else {
-      console.log(`You lose! ${computerChoice} beats ${userChoice}`);
-      return `You lose! ${computerChoice} beats ${userChoice}`;
+      winnerIs.textContent = `You lose, ${computerChoice} beats ${userChoice}.`;
+      return `You lose, ${computerChoice} beats ${userChoice}.`;
     }
   };
 
 let computerScore = 0;
 let userScore = 0;
+
+const userPlays = document.querySelector('#userPlays')
 
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
