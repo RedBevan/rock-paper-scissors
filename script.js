@@ -61,15 +61,18 @@ function userPlaysPaper() {
 
 
 function userPlaysRock() {
-  playRound('rock')
+  playRound('rock');
+  gameEnd();
 };
 
 function userPlaysPaper() {
   playRound('paper');
+  gameEnd();
 }
 
 function userPlaysScissors() {
   playRound('scissors');
+  gameEnd();
 }
 
 function playRound(userChoice) {
@@ -85,12 +88,24 @@ function playRound(userChoice) {
       || (userChoice == 'scissors' && computerChoice == 'paper')
     ) {
       winnerIs.textContent = `You win, ${userChoice} beats ${computerChoice}.`;
+      userScore += 1;
+      userScorePara.textContent = `Your score: ${userScore}`;
       return `You win, ${userChoice} beats ${computerChoice}.`
     } else {
       winnerIs.textContent = `You lose, ${computerChoice} beats ${userChoice}.`;
+      computerScore += 1;
+      computerScorePara.textContent = `Computer score: ${computerScore}`;
       return `You lose, ${computerChoice} beats ${userChoice}.`;
-    }
-  };
+    };
+    };
+
+function gameEnd() {
+  if (userScore === 5) {
+    roundWinner.textContent = 'You won the game! Good job.'
+  } else if (computerScore === 5) {
+    roundWinner.textContent = 'You lost! Better luck next time.';
+  }
+}
 
 let computerScore = 0;
 let userScore = 0;
