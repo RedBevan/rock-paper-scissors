@@ -30,7 +30,7 @@ function getComputerChoice() {
 
 function userPlaysRock() {
   const computerChoice = getComputerChoice();
-  console.log(computerChoice);
+  console.log(`Computer plays: ${computerChoice}`);
   if (computerChoice == 'rock') {
     console.log('Draw');
     return "It's a draw!";
@@ -45,7 +45,7 @@ function userPlaysRock() {
 
 function userPlaysPaper() {
   const computerChoice = getComputerChoice();
-  console.log(computerChoice);
+  console.log(`Computer plays: ${computerChoice}`);
   if (computerChoice == 'paper') {
     console.log('Draw');
     return "It's a draw!";
@@ -58,16 +58,39 @@ function userPlaysPaper() {
   }
   }
 
+
+
+function userPlaysRock() {
+  playRound('rock')
+};
+
+function userPlaysPaper() {
+  playRound('paper');
+}
+
 function userPlaysScissors() {
+  playRound('scissors');
+}
+
+function playRound(userChoice) {
   const computerChoice = getComputerChoice();
-  if (computerChoice == 'scissors') {
+  console.log(`Computer plays: ${computerChoice}`);
+  console.log('User plays: ' + userChoice);
+  if (computerChoice == userChoice) {
+    console.log("It's a draw!");
     return "It's a draw!";
-  } else if (computerChoice == 'rock') {
-    return 'You lose! Rock beats scissors.';
-  } else {
-    return 'You win! Scissors beat paper.'
-  }
-  }
+  } else if (
+      (userChoice == 'rock' && computerChoice == 'scissors') 
+      || (userChoice == 'paper' && computerChoice == 'rock')
+      || (userChoice == 'scissors' && computerChoice == 'paper')
+    ) {
+      console.log(`You win! ${userChoice} beats ${computerChoice}`);
+      return `You win! ${userChoice} beats ${computerChoice}`
+    } else {
+      console.log(`You lose! ${computerChoice} beats ${userChoice}`);
+      return `You lose! ${computerChoice} beats ${userChoice}`;
+    }
+  };
 
 let computerScore = 0;
 let userScore = 0;
@@ -81,30 +104,6 @@ rockBtn.addEventListener('click', userPlaysRock);
 paperBtn.addEventListener('click', userPlaysPaper);
 scissorsBtn.addEventListener('click', userPlaysScissors);
 
-
-
-
-/* function playRound() { // This function plays single round of RPS 
-  const computerChoice = getComputerChoice();
-  console.log(computerChoice);
-  const userInput = prompt('Rock, paper or scissors?', ''); //Get user choice from a prompt
-  const userChoice = userInput.toLowerCase(); //Convert user choice to lower case
-  console.log(userChoice);
-  if (userChoice === computerChoice) {
-    console.log("It's a draw!");
-    return "It's a draw!";
-  } else if ((userChoice === 'rock' && computerChoice === 'scissors')
-            || (userChoice === 'paper' && computerChoice === 'rock')
-            || (userChoice === 'scissors' && computerChoice === 'paper')) {
-              console.log(`You win! ${userChoice} beats ${computerChoice}`)
-              userScore += 1;
-              return `You win! ${userChoice} beats ${computerChoice}`;
-            } else {
-              console.log(`You lose! ${computerChoice} beats ${userChoice}`);
-              computerScore += 1;
-              return `You lose! ${computerChoice} beats ${userChoice}`;
-            }}; */
-    
 
 
 
