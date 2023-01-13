@@ -1,5 +1,22 @@
 // A simple Rock Paper Scissors game
 
+const counterNumber = 5;
+
+function startCountdown(seconds) {
+  let counter = seconds;
+    
+  const interval = setInterval(() => {
+    console.log(counter);
+    gameCountdown.textContent = `New game in ${counter}`;
+    counter--;
+
+    if (counter < 0) {
+      clearInterval(interval);
+      resetGame();
+    }
+  }, 1000);
+}
+
 function getComputerChoice() { 
     let ranNum = (Math.random())*10;
       if (ranNum <= 3.33) {
@@ -47,6 +64,7 @@ function resetGame() {
   computerPlays.textContent = '';
   winnerIs.textContent = '';
   roundWinner.textContent = '';
+  gameCountdown.textContent = '';
   userScore = 0;
   computerScore = 0;
   userScorePara.textContent = `Your score: ${userScore}`;
@@ -97,14 +115,14 @@ function gameEnd() {
     userPlays.textContent = '';
     computerPlays.textContent = '';
     winnerIs.textContent = '';
-    roundWinner.textContent = 'You won the game! Good job.'
-    setTimeout(resetGame, 3000);
+    roundWinner.textContent = 'You won the game! Good job.';
+    startCountdown(5);
   } else if (computerScore >= 5) {
     userPlays.textContent = '';
     computerPlays.textContent = '';
     winnerIs.textContent = '';
     roundWinner.textContent = 'You lost! Better luck next time.';
-    setTimeout(resetGame, 3000);
+    startCountdown(5);
   }
 }
 
