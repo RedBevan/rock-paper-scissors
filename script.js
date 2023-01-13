@@ -97,12 +97,14 @@ function gameEnd() {
     userPlays.textContent = '';
     computerPlays.textContent = '';
     winnerIs.textContent = '';
-    roundWinner.textContent = 'You won the game! Good job. Press reset to play again.';
+    roundWinner.textContent = 'You won the game! Good job.'
+    setTimeout(resetGame, 3000);
   } else if (computerScore >= 5) {
     userPlays.textContent = '';
     computerPlays.textContent = '';
     winnerIs.textContent = '';
-    roundWinner.textContent = 'You lost! Better luck next time. Press reset to play again.';
+    roundWinner.textContent = 'You lost! Better luck next time.';
+    setTimeout(resetGame, 3000);
   }
 }
 
