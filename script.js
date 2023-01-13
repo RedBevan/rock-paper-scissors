@@ -6,7 +6,6 @@ function startCountdown(seconds) {
   let counter = seconds;
     
   const interval = setInterval(() => {
-    console.log(counter);
     gameCountdown.textContent = `New game in ${counter}`;
     counter--;
 
