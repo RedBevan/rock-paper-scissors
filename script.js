@@ -7,7 +7,8 @@ function getComputerChoice() {
       } else if (ranNum <= 6.66) {
         return "paper";       
       } else {
-        return "scissors";        
+        return "scissors";  
+        console.log('Reset');      
       }   
 }
 
@@ -41,7 +42,16 @@ function userPlaysPaper() {
   }
   }
 
-
+function resetGame() {
+  userPlays.textContent = 'Choose your weapon!';
+  computerPlays.textContent = '';
+  winnerIs.textContent = '';
+  roundWinner.textContent = '';
+  userScore = 0;
+  computerScore = 0;
+  userScorePara.textContent = `Your score: ${userScore}`;
+  computerScorePara.textContent = `Computer score: ${computerScore}`;
+}
 
 function userPlaysRock() {
   playRound('rock');
@@ -83,10 +93,16 @@ function playRound(userChoice) {
     };
 
 function gameEnd() {
-  if (userScore === 5) {
-    roundWinner.textContent = 'You won the game! Good job.'
-  } else if (computerScore === 5) {
-    roundWinner.textContent = 'You lost! Better luck next time.';
+  if (userScore >= 5) {
+    userPlays.textContent = '';
+    computerPlays.textContent = '';
+    winnerIs.textContent = '';
+    roundWinner.textContent = 'You won the game! Good job. Press reset to play again.';
+  } else if (computerScore >= 5) {
+    userPlays.textContent = '';
+    computerPlays.textContent = '';
+    winnerIs.textContent = '';
+    roundWinner.textContent = 'You lost! Better luck next time. Press reset to play again.';
   }
 }
 
@@ -98,11 +114,13 @@ const userPlays = document.querySelector('#userPlays')
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
+const resetBtn = document.querySelector('#reset');
 
 
 rockBtn.addEventListener('click', userPlaysRock);
 paperBtn.addEventListener('click', userPlaysPaper);
 scissorsBtn.addEventListener('click', userPlaysScissors);
+resetBtn.addEventListener('click', resetGame);
 
 
 

@@ -21,31 +21,27 @@ body {
   }
 
   .screen-box {
-    min-width: 600px;
-    min-height: 300px;
+    width: 800px;
+    height: 300px;
+    padding: 20px;
     background-color: black;
-    border: yellow solid 3px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
 
   .screen-top {
-    border: blue solid 2px;
   }
 
   .screen-bottom {
-    border: green solid 3px;
   }
 
   .score-texts {
-    border: pink solid 3px;
     display: flex;
     justify-content: space-between;
   }
 
   .button-bar {
-    border: yellow solid 3px;
   }
 
   .small-button {
