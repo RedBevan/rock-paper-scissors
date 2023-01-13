@@ -1,5 +1,4 @@
-  /* create function called getComputerChoice to return
-  rock, paper, or scissors */
+// A simple Rock Paper Scissors game
 
 function getComputerChoice() { 
     let ranNum = (Math.random())*10;
@@ -11,22 +10,6 @@ function getComputerChoice() {
         return "scissors";        
       }   
 }
-
-/* function playRound() {
-  if (userChoice === computerChoice) {
-    console.log("It's a draw!");
-    return "It's a draw!";
-  } else if ((userChoice === 'rock' && computerChoice === 'scissors')
-            || (userChoice === 'paper' && computerChoice === 'rock')
-            || (userChoice === 'scissors' && computerChoice === 'paper')) {
-              console.log(`You win! ${userChoice} beats ${computerChoice}`)
-              userScore += 1;
-              return `You win! ${userChoice} beats ${computerChoice}`;
-            } else {
-              console.log(`You lose! ${computerChoice} beats ${userChoice}`);
-              computerScore += 1;
-              return `You lose! ${computerChoice} beats ${userChoice}`;
-            }}; */
 
 function userPlaysRock() {
   const computerChoice = getComputerChoice();

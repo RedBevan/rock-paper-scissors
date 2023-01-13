@@ -1,0 +1,85 @@
+/* 
+Color scheme
+#54494B dark grey
+#F1F7ED white
+#91C7B1 duckegg
+#B33951 granada
+#e3D081 alhambra
+*/
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #54494B;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  .title-header {
+    min-height: 50px;
+  }
+
+  .screen-box {
+    min-width: 600px;
+    min-height: 300px;
+    background-color: black;
+    border: yellow solid 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .screen-top {
+    border: blue solid 2px;
+  }
+
+  .screen-bottom {
+    border: green solid 3px;
+  }
+
+  .score-texts {
+    border: pink solid 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-bar {
+    border: yellow solid 3px;
+  }
+
+  .small-button {
+    text-align: center;
+    min-width: 150px;
+	display: inline-block;
+	margin:5px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px ;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+}
+
+.big-button {
+  text-align: center;
+  width: 100%;
+display: inline-block;
+margin:5px;
+  font-weight: bold;
+  padding: 10px 0 10px 10px ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+-moz-border-radius: 7px;
+-o-border-radius: 7px;
+border-radius: 7px;
+  box-shadow: 0 .2em gray; 
+  cursor: pointer;
+}
